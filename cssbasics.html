@@ -75,6 +75,28 @@
             width: 100px;
             background-color: rebeccapurple;
         }
+
+        #oggy{
+            height: 200px;
+            width: 200px;
+            background-color: aquamarine;
+        }
+
+        #piku{
+            background-color: plum;
+            max-width: 50%;
+        }
+
+        #boxmodel{
+            max-width: 100%;
+        }
+
+        #pop{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+            border:2px dotted grey;   
+        }
     </style>
 </head>
 <body>
@@ -119,6 +141,20 @@
     <p>Sponge has a bottom margin of 50px and bob has a top margin of 20px so the total distance b/w them should be 70px but due to collapse margin concept actual margin=highest of the two margins i.e 50px over here</p>
     <h4 id="sponge">I am a header4 and my id is sponge and will show you collapse margin concept</h4>
     <h4 id="bob">Hello I am header4 with id bob here to demonstrate collapse margin concept</h4>
-    
+
+    <h4>height and width are used to set height and width of an element</h4>
+    <h4>max-width is used to set max width of an element</h4>
+
+    <div id="oggy">
+        <h4 id="piku">I am a header4 inside a div.Id of div is oggy and id of header4 is piku</h4>
+    </div>
+
+    <h4>The below img is of box model</h4>
+    <img src="boxmodel.png" alt="" id="boxmodel">
+
+    <div id="pop">
+        <h4>Hello Hello</h4>
+    </div>
+
 </body>
 </html>
