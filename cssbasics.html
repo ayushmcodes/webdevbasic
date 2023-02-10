@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics</title>
+    <style>
+        p{
+            text-align: center;
+        }
+
+        #iamh3{
+            text-align: center;
+            background-color: pink;
+            color: cornflowerblue;
+        }
+
+        p.hello{
+            background-color: chocolate;
+        }
+
+        .bob{
+            background-color: orangered;
+            font-size: larger;
+        }
+
+        .tom{
+            border: 5px solid yellowgreen;
+            font-size: xx-large;
+        }
+
+        h6,span{
+            background-color: aquamarine;
+        }
+
+        #multiplestylesheets{
+            border: 3px dotted black;
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 2vw;
+        }
+        
+        #dog{
+            background-color: orchid;
+            opacity: .5;
+        }
+
+        #cold{
+            border: 2px solid black;
+            margin-top:100px;
+            margin-left: 50px;
+        }
+
+        #divrain{
+            border: 5px solid black;
+        }
+
+        #rain{
+            margin: auto;
+        }
+
+        #sponge{
+            border: 2px solid black;
+            margin :0px 0px 50px 0px;
+        }
+
+        #bob{
+            border: 2px solid black;
+            margin: 20px 0px 0px 0px;
+        }
+
+        #book{
+            height: 100px;
+            width: 100px;
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <h3 id="iamh3">CSS selectors are used to find the HTML elements that you want to style</h3>
+    <p>There are 5 types of CSS selectors</p>
+    <ul>
+        <li>Simple Selectos->Select elements based on name,id,class</li>
+        <li>Combination Selectors</li>
+        <li>Pseudo-class selectors</li>
+        <li>Pseudo-elements selectors</li>
+        <li>Attribute selectors</li>
+    </ul>
+
+    <p class="hello">I am a p element and I am using hello class and I demonstrate how to affect only specific HTML elements</p>
+    <h4 class="hello">I am header using class hello but the above CSS does not applies on me</h4>
+
+    <h5 class="bob tom">I am header using two classes bob and tom.Bob gives me color and Tom gives me border</h5>
+
+    <h4>* is a universal selector which selects all the HTML elements</h4>
+
+    <h6>I am a header6 and have been gropued with span to give same CSS</h6>
+    <span>I am span and have been grouped with header6 to give same CSS</span>
+
+    <h4>Below image tells about multiple style sheets</h4>
+    <img src="multiplestylesheets.png" alt="" id="multiplestylesheets">
+    <img src="multiplestylesheets_example.png" alt="" id="multiplestylesheets">
+
+    <p>The background property of CSS is used to add <b>background effects for element<b></p>
+    
+    <div id="dog">
+        <p>I am a para inside div and I take css from id dog and the css of para defined in the begining.CSS from id gives me orchid color and css of para tag gives me center alignment</p>
+    </div>
+
+    <h4 id="cold">I am a header4 and my id is cold and css applied to me is margin top and margin left</h4>
+    
+    <div id="divrain">
+        <h4 id="rain">I am a header4 and my id is rain and css applied to me in margin auto which horizontally centers me in the container in am present</h4>
+    </div>
+
+    <p>Bellow demonstrates concept of collapse margin.This concept works only vertically i.e on top and bottom margins</p>
+
+    <p>Sponge has a bottom margin of 50px and bob has a top margin of 20px so the total distance b/w them should be 70px but due to collapse margin concept actual margin=highest of the two margins i.e 50px over here</p>
+    <h4 id="sponge">I am a header4 and my id is sponge and will show you collapse margin concept</h4>
+    <h4 id="bob">Hello I am header4 with id bob here to demonstrate collapse margin concept</h4>
+    
+</body>
+</html>
