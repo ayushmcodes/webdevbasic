@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div1{
+            border: 10px solid blueviolet;
+            height: 100px;
+            width: 200px;
+            padding: 15px;
+        }
+
+        #div2{
+            box-sizing: border-box;
+            border: 10px solid yellowgreen;
+            height: 200px;
+            width: 200px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Without CSS box sizing property</h1>
+    <p>By default widht and height of an element is calculated as follows</p>
+    <ul>
+        <li>width + padding + border = actual width of an element</li>
+        <li>height + padding + border = actual height of an element</li>
+        <li>This means: When you set the width/height of an element, the element often appears bigger than you have set (because the element's border and padding are added to the element's specified width/height).</li>
+        <li>We have set width as 200px and height as 100px but since we are not using box sizing property the total width becomes 250px and total height becomes 150px</li>
+        <li>Bellow is an illustration</li>
+    </ul>
+
+    <div id="div1">
+        <p>I am a div not using box sizing property and my height and width is set to 300px and 100px respectively.And I look greater than my dimensions
+        </p>
+    </div>
+
+    <br><br><br><br><br>
+
+    <h1>With CSS box sizing property</h1>
+    <p>The box-sizing property allows us to include the padding and border in an element's total width and height.</p>
+    <ul>
+        <li>If you set box-sizing: border-box; on an element, padding and border are included in the width and height:</li>
+        <li>We have set width as 200px and height as 200px but since we are using box sizing property the total width remains 20px and total height remains 100px</li>
+        <li>Bellow is an illustration</li>
+    </ul>
+
+    <div id="div2">
+        <p>I am a div using box sizing property and my height and width is set to 200px and 200px respectively.And I look exact as my dimensions</p>
+    </div>
+
+    <h2>Since the result of using the box-sizing: border-box; is so much better, many developers want all elements on their pages to work this way.
+        So they use *{box-sizing:border-box};
+    </h2>
+</body>
+</html>
