@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: paleturquoise;
+             text-align: center;
+        }
+
+        form{
+            background-color: wheat;
+            max-width: 500px;
+            margin: 50px auto;/*top and bottom are 50px and right and left are auto*/
+            padding: 30px 20px;/*top and bottom is 50px and right and left is 20px*/
+        }
+
+        .form-control{
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .form-control label{
+            display: block;
+        }
+
+        .form-control input,
+        .form-control select,
+        .form-control textarea{
+            border: 1px solid black;
+            border-radius: 2px;
+            font-family: inherit;
+            padding:10px;
+        }
+
+        button{
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Survey Form</h1>
+
+    <form action="" id="form">
+        <div class="form-control">
+            <label for="name" id="label-name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-control">
+            <label for="email" id="label-email">Email</label>
+            <input type="text" name="email" placeholder="Enter your email">
+        </div>
+
+        <div class="form-control">
+            <label for="age" id="label-age">Age</label>
+            <input type="text" id="age" placeholder="Enter your age">
+        </div>
+
+        <div class="form-control">
+            <label for="role" id="label-role">What options best describe you</label>
+
+            <select name="" id="">
+                <option value="student">Student</option>
+                <option value="intern">Intern</option>
+                <option value="professional">Professional</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="">Would you recommend GeeksForGeeks</label>
+
+            <label for="recommend-1">
+                <input type="radio" id="recommend-1" name="recommend">Yes</input>
+            </label>
+
+            <label for="recommend-2">
+                <input type="radio" id="recommend-2" name="recommend">No</input>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label for="">Languages and Frameworks known</label>
+
+            <label for="inp-1">
+                <input type="checkbox" name="inpt" id="inp-1">C</input>
+            </label>
+
+            <label for="inp-2">
+                <input type="checkbox" name="inpt" id="inp-2">C++</input>
+            </label>
+
+            <label for="inp-3">
+                <input type="checkbox" name="inpt" id="inp-3">JavaScript</input>
+            </label>
+
+            <label for="inp-4">
+                <input type="checkbox" name="inpt" id="inp-4">Python</input>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label for="comment">Any comments or suggestions</label>
+
+            <textarea name="comment" id="comment" cols="30" rows="10" placeholder="Enter your suggestions and comments here"></textarea>
+        </div>
+
+        <button type="submit" value="submit">Submit</button>
+    </form>
+</body>
+</html>
