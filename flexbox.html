@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            height: 200px;
+            display: flex;
+            flex-direction: row;
+            border: 3px solid black;
+            background-color: lightcoral;
+            justify-content: flex-end;
+            align-items: st;
+        }
+
+        #item1{
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            margin: 5px 5px 5px 5px;
+        }
+
+        #item2{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            margin: 5px 5px 5px 5px;
+            align-self: center;
+        }
+
+        #item3{
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            margin: 5px 5px 5px 5px;
+        }
+
+        #item4{
+            height: 100px;
+            width: 100px;
+            background-color: rebeccapurple;
+            margin: 5px 5px 5px 5px;
+        }
+
+        #item5{
+            height: 100px;
+            width: 100px;
+            background-color: greenyellow;
+            margin: 5px 5px 5px 5px;
+        }
+
+        .matchstick{
+            background-color: palevioletred;
+            height: 100px;
+            width: 200%;
+            border: 2px solid purple;
+            margin-top: 50px;
+        }
+
+
+        .matchbox{
+            display: flex;
+        }
+
+        .bigbox{
+            height: 300px;
+            width: 700px;
+            background-color: aqua;
+            border: 3px solid blueviolet;
+            margin-top: 50px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .smallbox{
+            height: 290px;
+            width: 100px;
+            background-color: yellow;
+            margin: 2px 2px;
+            border: 2px solid rebeccapurple;
+        }
+
+       
+
+    </style>
+</head>
+<body>
+
+    <!--The below code demonstrates justifycontent alignitems and alignself properties-->
+    <div class="cont">
+        <div id="item1"></div>
+        <div id="item2"></div>
+        <div id="item3"></div>
+        <div id="item4"></div>
+        <div id="item5"></div>
+    </div>
+
+
+    <!--The below code demonstrates hypothetical size property-->
+    <div class="matchstick"></div>
+
+    <div class="matchbox">
+        <div class="matchstick"></div>
+    </div>
+
+
+    <!--The below code demonstrates flex-basis property-->
+    <div class="bigbox">
+        <div class="smallbox" id="smallbox1"></div>
+        <div class="smallbox"></div>
+        <div class="smallbox"></div>
+    </div>
+
+</body>
+</html>
