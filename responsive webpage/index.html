@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive WebSite</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        h1,p{
+            margin-top: 0;
+        }
+        .header{
+            background-color: #9933cc;
+            color: #ffffff;
+            padding: 15px;
+        }
+        .menu ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .menu li{
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+        }
+        .menu li:hover{
+            background-color: #0099cc;
+        }
+        .col-3{
+            width: 25%;
+            float: left;
+        }
+        .col-9{
+            width: 75%;
+            float: left;
+        }
+
+        @media only screen and (max-width:700px){
+            .col-3{
+                width: 100%;
+            }
+            .col-9{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Bengaluru</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-3 menu">
+            <ul>
+                <li>The Flight</li>
+                <li>The City</li>
+                <li>The Island</li>
+                <li>The Food</li>
+            </ul>
+        </div>
+        
+        <div class="col-9">
+            <h1>The City</h1>
+            <p>Bengaluru (also called Bangalore) is the capital of India's southern Karnataka state. The center of India's high-tech industry, the city is also known for its parks and nightlife. By Cubbon Park, Vidhana Soudha is a Neo-Dravidian legislative building. Former royal residences include 19th-century Bangalore Palace, modeled after England’s Windsor Castle, and Tipu Sultan’s Summer Palace, an 18th-century teak structure</p>
+            <p>Resize the browser window to see how the content respond to the resizing</p>
+        </div>
+    </div>
+</body>
+</html>

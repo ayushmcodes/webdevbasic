@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        #div1{
+            background-color: yellow;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .header{
+            padding: 60px;
+            text-align: center;
+            background:#1abc9c;
+            color: white;
+        }
+
+        .navbar{
+            display: flex;
+            background-color: #333;
+        }
+
+        .navbar a{
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover{
+            background-color: #ddd;
+            color: black;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .side{
+            background-color: #f1f1f1;
+            padding: 20px;
+            flex: 30%
+        }
+
+        .fakeimg{
+            background-color: #aaa;
+            width: 95%;
+            padding: 20px;
+            margin-bottom: 5px;
+        }
+
+        .main{
+            background-color: white;
+            padding: 20px;
+            flex: 30%;
+        }
+        
+        @media (max-width:700px){
+            .row,.navbar{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h4>Resize the browser to see the responsive effect</h4>
+    </div>
+
+    <div class="header">
+        <h1>My Website</h1>
+        <p>With a <b>flexible</b> layout.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="">Link</a>
+        <a href="">Link</a>
+        <a href="">Link</a>
+        <a href="">Link</a>
+    </div>
+
+    <div class="row">
+        <div class="side">
+            <h2>About Me</h2>
+            <h5>Photo of me</h5>
+            <div class="fakeimg" style="height: 200px;">Image</div>
+            <p>Some text about me in abjbca haoschi nacsb iboiacsc oiphascoi ibaiscb acsacas</p>
+            <div class="fakeimg" style="height: 60px;">Image</div>
+            <div class="fakeimg" style="height: 60px;">Image</div>
+            <div class="fakeimg" style="height: 60px;">Image</div>
+        </div>
+
+        <div class="main">
+            <h2>TITLE HEADING</h2>
+            <h5>Title description, Dec 7, 2022</h5>
+
+            <div class="fakeimg" style="height: 200px;">Image</div>
+
+            <p>Some text...</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero cupiditate, iure, quibusdam aliquid veritatis adipisci rerum earum fugit omnis dolore minima obcaecati nam optio quis, consequuntur eaque qui id saepe!</p>
+        </div>
+    </div>
+</body>
+</html>
