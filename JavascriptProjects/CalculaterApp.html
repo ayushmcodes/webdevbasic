@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: purple;
+        }
+
+        #main{
+            margin: 0;
+            margin-top: 100px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #header{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            height: 5%;
+            font-size: xx-large;
+            font-weight: 100;
+        }
+
+        #header h3{
+            width: 70vw;
+            overflow: hidden;
+            color: white;
+        }
+
+        #outputbox{
+            text-align: center;
+        }
+
+        #outputbox input{
+            height: 5vw;
+            width: 60.5vw;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: xx-large;
+            color: white;
+            text-align: right;
+        }
+        
+        #keypad{
+            width: 70vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #tab{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn{
+            height: 10vh;
+            width: 15vw;
+            font-size: 200%;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        @media only screen and (max-height:480px){
+            #main{
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <h3>CALCULATOR</h3>
+        </div>
+
+        <div id="outputbox">
+            <input type="text" value="" id="screen">
+        </div>
+
+        <div id="keypad">
+            <table id="tab">
+                <!--Row1 below-->
+                <tr>
+                    <td>
+                        <button class="btn">(</button>
+                    </td>
+                    <td>
+                        <button class="btn">)</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="erase()">C</button>
+                    </td>
+                    <td>
+                        <button class="btn">%</button>
+                    </td>
+                </tr>
+
+                <!--Row2 below-->
+                <tr>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">7</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">8</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">9</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">*</button>
+                    </td>
+                </tr>
+
+                <!--Row3 below-->
+                <tr>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">4</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">5</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">6</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">-</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">1</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">2</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">3</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">+</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">0</button>
+                    </td>
+                    <td>
+                        <button class="btn">.</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="pressed(this)">/</button>
+                    </td>
+                    <td>
+                        <button class="btn" onclick="cal()">=</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script>
+        var str="";
+
+        function erase(){
+            document.getElementById("screen").setAttribute("value","");
+            str=""; 
+        }
+
+        function pressed(id){
+            var btn=id.innerHTML;
+            var outputscreen=document.getElementById("screen");
+            console.log(btn);
+            console.log(btn.charCodeAt(0));
+            var c=btn.charCodeAt(0);
+
+            var symbol=btn;
+            console.log(symbol);
+
+            if(c>=48 && c<=57)
+            {
+                str=str+(c-48);
+            }
+            else if(symbol=="+" || symbol=="-" || symbol=="/" || symbol=="*")
+            { 
+                str=str+symbol;
+            }
+            outputscreen.setAttribute("value",str);
+        }
+
+
+        function evaluate(expression){
+        let tokens = expression.split('');
+        let values = [];
+        let ops = [];  
+        for (let i = 0; i < tokens.length; i++)
+        {
+            if (tokens[i] == ' ')
+            {
+                continue;
+            }
+
+            if (tokens[i] >= '0' && tokens[i] <= '9')
+            {
+                let sbuf = "";
+                while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
+                {
+                    sbuf = sbuf + tokens[i++];
+                }
+                values.push(parseInt(sbuf, 10));
+                i--;
+            }
+            else if (tokens[i] == '(')
+            {
+                ops.push(tokens[i]);
+            }
+            else if (tokens[i] == ')')
+            {
+                while (ops[ops.length - 1] != '(')
+                {
+                  values.push(applyOp(ops.pop(),values.pop(),values.pop()));
+                }
+                ops.pop();
+            }
+            else if (tokens[i] == '+' ||
+                     tokens[i] == '-' ||
+                     tokens[i] == '*' ||
+                     tokens[i] == '/')
+            {
+                while (ops.length > 0 &&
+                         hasPrecedence(tokens[i],
+                                     ops[ops.length - 1]))
+                {
+                  values.push(applyOp(ops.pop(),
+                                   values.pop(),
+                                 values.pop()));
+                }
+  
+                // Push current token to 'ops'.
+                ops.push(tokens[i]);
+            }
+        }
+  
+        // Entire expression has been
+        // parsed at this point, apply remaining
+        // ops to remaining values
+        while (ops.length > 0)
+        {
+            values.push(applyOp(ops.pop(),
+                             values.pop(),
+                            values.pop()));
+        }
+  
+        // Top of 'values' contains
+        // result, return it
+        return values.pop();
+    }
+  
+    // Returns true if 'op2' has
+    // higher or same precedence as 'op1',
+    // otherwise returns false.
+    function hasPrecedence(op1, op2)
+    {
+        if (op2 == '(' || op2 == ')')
+        {
+            return false;
+        }
+        if ((op1 == '*' || op1 == '/') &&
+               (op2 == '+' || op2 == '-'))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+  
+    // A utility method to apply an
+    // operator 'op' on operands 'a'
+    // and 'b'. Return the result.
+    function applyOp(op, b, a)
+    {
+        switch (op)
+        {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            if (b == 0)
+            {
+                document.write("Cannot divide by zero");
+            }
+            return parseInt(a / b, 10);
+        }
+        return 0;
+    }
+     
+    function cal()
+    {
+    console.log(evaluate(str));
+    document.getElementById("screen").setAttribute("value",evaluate(str));
+    str="";
+    }
+    </script>
+</body>
+</html>
