@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="div2">Hello</p>
+    </div>
+
+    <button onclick="print1()">Print1</button>
+
+    <div id="parent1">
+        <p id="kid1">I am para1</p>
+        <p id="kid2">I am para2</p>
+    </div>
+
+    <button onclick="print2()">Print2</button>
+
+
+    <div id="hello1">
+        <p id="p1">This is para1</p>
+        <p id="p2">This is another para</p>
+    </div>
+
+    <button onclick="print3()">Print3</button>
+
+    <button onclick="remove1()">Remove the div with div id div2</button>
+
+    <button onclick="collectp()">Collect all p's</button>
+    <script>
+        function remove1(){
+            document.getElementById("div2").remove();
+        }
+        function print1(){
+            console.log(document.getElementById("div1").nodeName);
+            console.log(document.getElementById("div1").nodeType);
+            console.log(document.getElementById("div1").nodeValue);
+            console.log(document.getElementById("div2").firstChild.nodeValue);
+        }
+
+
+        function print2(){
+            const para=document.createElement("p");
+            const node=document.createTextNode("This is a nrw para");
+            para.appendChild(node);
+
+            const element=document.getElementById("parent1");
+            element.appendChild(para);
+        }
+
+        function print3(){
+            const para=document.createElement("p");
+            const node=document.createTextNode("I am a new para");
+            para.appendChild(node);
+
+            const ele=document.getElementById("hello1");
+            const child=document.getElementById("p2");
+            ele.insertBefore(para,child);
+        }
+
+        function collectp(){
+            const collectionp=document.getElementsByTagName("p");
+            console.log(collectionp);
+            console.log(collectionp[2]);
+            console.log(collectionp[2].innerHTML);
+            console.log(collectionp.length);
+
+            for(var i=0;i<collectionp.length;i++){
+                collectionp[i].style.color="purple";
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

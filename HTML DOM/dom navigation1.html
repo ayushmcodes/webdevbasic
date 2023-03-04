@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <h3 id="h1">
+            header1
+        </h3><h4 id="h2">header2</h4>
+
+        <h6 id="h3">
+            header3
+        </h6></div>
+
+    <button onclick="print()">Print</button>
+    <script>
+        function print(){
+        console.log(document.getElementById("div1").childNodes);
+        }
+    </script>
+</body>
+</html>
