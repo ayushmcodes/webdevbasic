@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <script src="https://kit.fontawesome.com/42aa80ac17.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #header{
+            background-color: lightcoral;
+            color: white;
+            height: 6vh;
+            margin-bottom: 2%;
+            border: 2px solid white;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 7px;
+        }
+
+        #header h1{
+            font-size: 4vh;
+        }
+
+        #newnotebody{
+            border: 2px solid lightcoral;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        #newnotebody h2{
+            font-size: 5vh;
+
+        }
+
+        #input textarea{
+            width: 400px;
+            height: 20vh;
+            border: 1px solid lightcoral;
+            font-size: large;
+        }
+
+        #newnotebody button{
+            width: 200px;
+            height: 7vh;
+            background-color: lightcoral;
+            color: white;
+            font-size: x-large;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+
+        #cardholder{
+            border: 2px solid lightcoral;
+            margin-top: 20px;
+            height: 50vh;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        @media only screen and (max-height:480px){
+
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>The Notes App</h1>
+    </div>
+
+    <div id="newnotebody">
+        <h2>Take a new note</h2>
+
+        <div id="input">
+            <textarea name="" id="inp" cols="30" rows="10"></textarea>
+        </div>
+        
+        <button id="btn" onclick="addnode()">Create Note</button>
+    </div>
+
+    <div id="cardholder">
+
+    </div>
+
+    <script>
+        const notes=[];
+        var text="";
+        function addnode(){
+            cardholder=document.getElementById("cardholder");//card holder
+
+            box=document.createElement("div");
+
+            text=document.getElementById("inp").value;
+            document.getElementById("inp").value=""//retrieving value in text area
+            console.log(text);
+
+            card=document.createElement("div");//creating a div
+            content=document.createElement("p");//creating a para
+
+            content.innerHTML=text//adding the user input into para tag
+
+            card.appendChild(content);//inserting para into div
+
+            //styling the card below 
+            card.style.backgroundColor="lightcoral";//setting color of the card
+            card.style.margin="5px";
+            card.style.height="14vh";//setting height of the card
+            card.style.width="12vw";//setting width of the card
+            card.style.color="white";//setting color of content inside the card to white
+            card.style.fontSize="large";//setting font size of the content
+            card.style.padding="2px";
+
+
+            //adding delete icon to card
+            divofdel=document.createElement("div");
+            del=document.createElement("i");
+            del.setAttribute("class","fa fa-trash");
+            del.setAttribute("aria-hidden","true");
+            del.style.position="relative";
+            del.style.left="85%";
+            del.setAttribute("onclick","delnode(this)");
+
+            box.appendChild(card);//inserting the card in box
+            box.appendChild(del);//inserting del icon in box
+
+            cardholder.appendChild(box);//inserting box in cardholder
+
+        }
+
+        function delnode(id){
+            id.parentElement.remove();
+        }
+
+    </script>
+</body>
+</html>
