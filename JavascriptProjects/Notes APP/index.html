@@ -91,12 +91,14 @@
     </div>
 
     <script>
-        const notes=[];
         var text="";
         function addnode(){
+            var id=idgenerator();
             cardholder=document.getElementById("cardholder");//card holder
 
             box=document.createElement("div");
+            box.setAttribute("id",id);
+
 
             text=document.getElementById("inp").value;
             document.getElementById("inp").value=""//retrieving value in text area
@@ -133,12 +135,23 @@
 
             cardholder.appendChild(box);//inserting box in cardholder
 
+
+            window.localStorage.setAttribute(,text);
         }
 
         function delnode(id){
             id.parentElement.remove();
+            windows.localStorage.remove(id.parentElement.getAttribute("id"));
         }
 
+
+        function rendernotes(){
+            
+        }
+
+        function idgenerator(){
+            return (Math.floor((Math.random() * 100) + 1));
+        }
     </script>
 </body>
 </html>

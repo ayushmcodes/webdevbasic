@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Menu</title>
+    <style>
+        #body{
+            text-align: center;
+        }
+
+        #body div,#body h2{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: gray;
+        }
+
+        #body input{
+            width: 30vw;
+            height: 3vh;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+        <div><input type="text" name="" id="inp" onkeyup="myfunction()"></div>
+        <h2>Operating System</h2>
+        <h2>Data Structures</h2>
+        <h2>Algorithms</h2>
+        <h2>Machine Learning</h2>
+        <h2>Web Developement</h2>
+    </div>
+
+    <script>
+        function myfunction(){
+            var search=document.getElementById("inp").value.toLowerCase();
+            console.log(search);
+            var obj=document.getElementsByTagName("h2");
+            for(var i=0;i<obj.length;i++){
+                var txt=obj[i].innerHTML.toLowerCase();
+                if(txt.indexOf(search)>=0){
+                    obj[i].style.display="block";
+                }else{
+                    obj[i].style.display="none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
