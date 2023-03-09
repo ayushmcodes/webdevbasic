@@ -1,0 +1,9 @@
+console.log(0);
+try{
+    cnsole.log(3);
+}catch(err){
+    console.log(err.name);
+}finally{
+    console.log(2);
+}
+console.log(4);
